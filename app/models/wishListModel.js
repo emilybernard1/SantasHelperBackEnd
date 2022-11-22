@@ -19,6 +19,10 @@ const wishListSchema = new mongoose.Schema(
 			type: Boolean,
 			required: false,
 		},
+		type: {
+			type: String,
+			required: true,
+		},
 		santasSecrets: [santasSecretsSchema],
 		owner: {
 			type: mongoose.Schema.Types.ObjectId,
