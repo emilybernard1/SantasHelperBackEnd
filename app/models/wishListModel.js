@@ -7,13 +7,17 @@ const wishListSchema = new mongoose.Schema(
 			type: String,
 			required: true,
 		},
+		item: {
+			type: String, 
+			required: true,
+		},
 		img: {
 			type: String,
 			required: false,
 		},
 		isBought: {
 			type: Boolean,
-			required: true,
+			required: false,
 		},
 		isWrapped: {
 			type: Boolean,

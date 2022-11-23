@@ -6,19 +6,17 @@ const santasSecretsSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    gift: {
+    secret: {
         type: String,
     },
     isBought: {
         type: Boolean,
         required: false,
     },
-    owner: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
-        required: true,
-    }
-
+    isWrapped: {
+        type: Boolean,
+        required: false,
+    },
 }, {
     timestamps: true,
 })

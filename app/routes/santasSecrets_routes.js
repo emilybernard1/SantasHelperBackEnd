@@ -29,6 +29,7 @@ router.post('/santasSecrets/:wishListId', removeBlanks, (req, res, next) => {
         // add the santasSecret to the wishList
         .then(wishList => {
             // push the santasSecret into the wishList's santasSecret array and return the saved wishList
+            console.log(santasSecrets)
             wishList.santasSecrets.push(santasSecrets)
             console.log("this is the wishList", wishList)
             return wishList.save()
