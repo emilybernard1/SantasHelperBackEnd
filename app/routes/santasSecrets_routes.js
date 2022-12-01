@@ -47,11 +47,12 @@ router.patch('/santasSecrets/:wishListId/:santasSecretId', requireToken, removeB
     const { wishListId, santasSecretId } = req.params
     //console.log('this is the wishListId\n', wishListId)
     //console.log('this is the santasSecretId\n', santasSecretId)
-
+    console.log("this is the request body", req.body)
     WishList.findById(wishListId)
         .then(handle404)
         .then(wishList => {
-            const theSantasSecret = wishList.santasSecrets.id(santasSecretsId)
+            console.log("This is my found wishlist", wishList)
+            const theSantasSecret = wishList.santasSecrets.id(santasSecretId)
             requireOwnership(req, wishList)
 
             theSantasSecret.set(req.body.santasSecrets)
@@ -73,7 +74,7 @@ router.delete('/santasSecrets/:wishListId/:santasSecretId', requireToken, (req, 
     WishList.findById(wishListId)
         .then(handle404)
         .then(wishList => {
-            const theSantasSecret = wishList.santasSecrets.id(santasSecretsId)
+            const theSantasSecret = wishList.santasSecrets.id(santasSecretId)
 
             requireOwnership(req, wishList)
 

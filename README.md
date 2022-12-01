@@ -19,22 +19,6 @@ TBD
   - Python
   - Django
 
-## User Stories
-As a user I want the ability to...
-  - sign in  or register
-  - make a wishlist for each of my loved ones
-  - see one wishlist
-  - see all wishlists
-  - add wishlists
-  - delete wishlists
-  - update wishlists
-  - add gifts to wishlists 
-  - delete gifts
-  - update gifts
-  - mark whether a gift has been bought
-  - mark whether a gift has been wrapped
-  - make a Santas Secrets List for each of my loved ones that's related to their wishlist 
-
 ## Stretch	Goals
 - add a field for where the gift is stored
 - have a checkbox where the user can chose an image to go with the wish list: either a candy-cane, christmas tree, or a gift box
@@ -45,15 +29,6 @@ As a user I want the ability to...
 - make it so users can upload pictures of the recipients to go with their wish lists
 - make it so the gifts show up in separate fields so they can individually be marked as bought or wrapped, rather than all or nothing
 - style the Santa's Secrets so it looks more like a roll of parchment and so that the messages become one big message, rather than individual messages
-  
-## Application Wire Frames
-![wireframe1](/images/WF1-SantasHelper.png "WireFrame1")
-![wireframe2](/images/WF2-SantasHelper.png "WireFrame2")
-![wireframe3](/images/WF3-SantasHelper.png "WireFrame3")
-![wireframe4](/images/WF4-SantasHelper.png "WireFrame4")
-![wireframe5](/images/WF5-SantasHelper.png "WireFrame5")
-![wireframe6](/images/WF6-SantasHelper.png "WireFrame6")
-![wireframe7](/images/WF7-SantasHelper.png "WireFrame7")
 
 ## Entity Relationship Diagrams
 ![erd](/images/ERD-SantasHelper.png "ERD")
