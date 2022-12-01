@@ -1,4 +1,4 @@
-// basic subdoc routes
+// basic subdoc routes, like the comments in the fruit app
 
 const express = require('express')
 const passport = require('passport')
@@ -19,7 +19,7 @@ const router = express.Router()
 // POST -> only user can create a Santas Secrets list
 ///////////////////////////////////////////////
 // POST /santasSecrets/<santasSecrets_id>
-router.post('/santasSecrets/:wishListId/:santasSecretId', removeBlanks, (req, res, next) => {
+router.post('/santasSecrets/:wishListId', removeBlanks, (req, res, next) => {
     // get the santasSecret from req.body
     const santasSecrets = req.body.santasSecrets
     const wishListId = req.params.wishListId
@@ -29,7 +29,9 @@ router.post('/santasSecrets/:wishListId/:santasSecretId', removeBlanks, (req, re
         // add the santasSecret to the wishList
         .then(wishList => {
             // push the santasSecret into the wishList's santasSecret array and return the saved wishList
+            console.log(santasSecrets)
             wishList.santasSecrets.push(santasSecrets)
+            console.log("this is the wishList", wishList)
             return wishList.save()
         })
         .then(wishList => res.status(201).json({ wishList: wishList }))
@@ -43,16 +45,21 @@ router.post('/santasSecrets/:wishListId/:santasSecretId', removeBlanks, (req, re
 // PATCH -> /santasSecrets/<wishList_id>//<santasSecret_id>
 router.patch('/santasSecrets/:wishListId', requireToken, removeBlanks, (req, res, next) => {
     const { wishListId, santasSecretId } = req.params
+    //console.log('this is the wishListId\n', wishListId)
+    //console.log('this is the santasSecretId\n', santasSecretId)
 
     WishList.findById(wishListId)
         .then(handle404)
         .then(wishList => {
             const theSantasSecret = wishList.santasSecrets.id(santasSecretsId)
+            //console.log('this is theSantasSecret\n', theSantasSecret)
             requireOwnership(req, wishList)
 
             theSantasSecret.set(req.body.santasSecrets)
-  
+            //console.log('this is the newSantasSecret\n', req.body.santasSecrets)
+
             return wishList.save()
+
         })
         .then(wishList => res.sendStatus(204))
         .catch(next)
@@ -63,7 +70,7 @@ router.patch('/santasSecrets/:wishListId', requireToken, removeBlanks, (req, res
 // //////////////////////////////////////////
 // DELETE -> /santasSecrets/<wishList_id>//<santasSecret_id>
 router.delete('/santasSecrets/:wishListId/:santasSecretId', requireToken, (req, res, next) => {
-    const { wishListId, santasSecretsId } = req.params
+    const { wishListId, santasSecretId } = req.params
 
     WishList.findById(wishListId)
         .then(handle404)
