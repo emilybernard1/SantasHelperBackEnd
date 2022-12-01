@@ -29,9 +29,7 @@ router.post('/santasSecrets/:wishListId', removeBlanks, (req, res, next) => {
         // add the santasSecret to the wishList
         .then(wishList => {
             // push the santasSecret into the wishList's santasSecret array and return the saved wishList
-            console.log(santasSecrets)
             wishList.santasSecrets.push(santasSecrets)
-            console.log("this is the wishList", wishList)
             return wishList.save()
         })
         .then(wishList => res.status(201).json({ wishList: wishList }))
@@ -45,13 +43,10 @@ router.post('/santasSecrets/:wishListId', removeBlanks, (req, res, next) => {
 // PATCH -> /santasSecrets/<wishList_id>//<santasSecret_id>
 router.patch('/santasSecrets/:wishListId/:santasSecretId', requireToken, removeBlanks, (req, res, next) => {
     const { wishListId, santasSecretId } = req.params
-    //console.log('this is the wishListId\n', wishListId)
-    //console.log('this is the santasSecretId\n', santasSecretId)
-    console.log("this is the request body", req.body)
+
     WishList.findById(wishListId)
         .then(handle404)
         .then(wishList => {
-            console.log("This is my found wishlist", wishList)
             const theSantasSecret = wishList.santasSecrets.id(santasSecretId)
             requireOwnership(req, wishList)
 
