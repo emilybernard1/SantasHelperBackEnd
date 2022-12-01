@@ -43,7 +43,7 @@ router.post('/santasSecrets/:wishListId', removeBlanks, (req, res, next) => {
 // UPDATE a single santasSecret
 // //////////////////////////////////////////
 // PATCH -> /santasSecrets/<wishList_id>//<santasSecret_id>
-router.patch('/santasSecrets/:wishListId', requireToken, removeBlanks, (req, res, next) => {
+router.patch('/santasSecrets/:wishListId/:santasSecretId', requireToken, removeBlanks, (req, res, next) => {
     const { wishListId, santasSecretId } = req.params
     //console.log('this is the wishListId\n', wishListId)
     //console.log('this is the santasSecretId\n', santasSecretId)
@@ -52,11 +52,9 @@ router.patch('/santasSecrets/:wishListId', requireToken, removeBlanks, (req, res
         .then(handle404)
         .then(wishList => {
             const theSantasSecret = wishList.santasSecrets.id(santasSecretsId)
-            //console.log('this is theSantasSecret\n', theSantasSecret)
             requireOwnership(req, wishList)
 
             theSantasSecret.set(req.body.santasSecrets)
-            //console.log('this is the newSantasSecret\n', req.body.santasSecrets)
 
             return wishList.save()
 

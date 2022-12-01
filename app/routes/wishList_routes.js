@@ -31,7 +31,7 @@ const router = express.Router()
 // ////////////////////////////
 // Index
 ///////////////////////////////
-// /santasHelper
+//GET /santasHelper
 // index for all wish lists
 router.get('/santasHelper', (req, res, next) => {
     WishList.find()
@@ -48,7 +48,7 @@ router.get('/santasHelper', (req, res, next) => {
 // ////////////////////////////
 // Show
 ///////////////////////////////
-// /santasHelper/:id
+//GET /santasHelper/:id
 router.get('/santasHelper/:id', (req, res, next) => {
     WishList.findById(req.params.id)
         .populate('owner')
@@ -63,7 +63,7 @@ router.get('/santasHelper/:id', (req, res, next) => {
 // ////////////////////////////
 // Create
 ///////////////////////////////
-// /wishLists
+//POST /wishLists
 router.post('/santasHelper', requireToken, (req, res, next) => {
     req.body.wishList.owner = req.user.id
 
