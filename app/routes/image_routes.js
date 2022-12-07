@@ -10,12 +10,12 @@ const requireOwnership = customErrors.requireOwnership
 const removeBlanks = require('../../lib/remove_blank_fields')
 const requireToken = passport.authenticate('bearer', { session: false })
 const router = express.Router()
-
+// unused imports
 // ////////////////////////////
 // Create
 // Post an image of the recipient
 ///////////////////////////////
-router.post('/image/:wishListId', removeBlanks, (req, res, next) => {
+router.post('/image/:wishListId', removeBlanks, (req, res, next) => { // be mindful of inconsistent blank space , would love to see some comments in here describing this routes function in the context fo the app 
 	try {
 		const fileStr = req.body.image
 

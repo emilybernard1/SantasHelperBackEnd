@@ -18,8 +18,8 @@ const router = express.Router()
 // ////////////////////////////////////////////
 // POST -> only user can create a Santas Secrets list
 ///////////////////////////////////////////////
-// POST /santasSecrets/<santasSecrets_id>
-router.post('/santasSecrets/:wishListId', removeBlanks, (req, res, next) => {
+// POST /santasSecrets/<santasSecrets_id> // incorrect comment 
+router.post('/santasSecrets/:wishListId', removeBlanks, (req, res, next) => { // lovely comments
     // get the santasSecret from req.body
     const santasSecrets = req.body.santasSecrets
     const wishListId = req.params.wishListId
@@ -50,7 +50,7 @@ router.patch('/santasSecrets/:wishListId/:santasSecretId', requireToken, removeB
             const theSantasSecret = wishList.santasSecrets.id(santasSecretId)
             requireOwnership(req, wishList)
 
-            theSantasSecret.set(req.body.santasSecrets)
+            theSantasSecret.set(req.body.santasSecrets)// interesting use of set - are we assigning or using the new set reference type here ?
 
             return wishList.save()
 
@@ -63,7 +63,7 @@ router.patch('/santasSecrets/:wishListId/:santasSecretId', requireToken, removeB
 // DESTROY a santasSecret
 // //////////////////////////////////////////
 // DELETE -> /santasSecrets/<wishList_id>//<santasSecret_id>
-router.delete('/santasSecrets/:wishListId/:santasSecretId', requireToken, (req, res, next) => {
+router.delete('/santasSecrets/:wishListId/:santasSecretId', requireToken, (req, res, next) => {// while i don't like the white space in this function it is consistent - good job 
     const { wishListId, santasSecretId } = req.params
 
     WishList.findById(wishListId)

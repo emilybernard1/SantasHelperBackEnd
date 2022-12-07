@@ -11,11 +11,11 @@ const santasSecretsSchema = new mongoose.Schema({
     },
     isBought: {
         type: Boolean,
-        required: false,
+        required: false, // consider assigning a default of false and requiring it 
     },
     isWrapped: {
         type: Boolean,
-        required: false,
+        required: false, // consider assigning a default of false and requiring it 
     },
 }, {
     timestamps: true,

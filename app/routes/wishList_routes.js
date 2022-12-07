@@ -50,14 +50,14 @@ router.get('/santasHelper', (req, res, next) => {
 ///////////////////////////////
 //GET /santasHelper/:id
 router.get('/santasHelper/:id', (req, res, next) => {
-    WishList.findById(req.params.id)
+    WishList.findById(req.params.id)// 
         .populate('owner')
         .then(handle404)
         .then(wishList => {
             res.status(200).json({ wishList: wishList })
         })
         .catch(next)
-
+//white space
 })
 
 // ////////////////////////////
@@ -66,9 +66,9 @@ router.get('/santasHelper/:id', (req, res, next) => {
 //POST /wishLists
 router.post('/santasHelper', requireToken, (req, res, next) => {
     req.body.wishList.owner = req.user.id
-
+// remove this white space after cleaning up your logs 
     // on the front end I HAVE TO SEND a wishList as the top level key
-    // wishList: {name: '', type: ''}
+    // wishList: {name: '', type: ''} // NICE comment
     WishList.create(req.body.wishList)
         .then(wishList => {
             res.status(201).json({ wishList: wishList })
