@@ -4,7 +4,7 @@ This is a full stack application where users can create wish lists of Christmas 
 
 ## Deployed Link
 TBD
-
+<!-- also include link to other repo which consumes this api  -->
 ## Technology Used
   - HTML
   - CSS
@@ -65,14 +65,14 @@ const startGifts = [
 ## Available Scripts
 
 In the project directory, you can run:
-
+<!-- currently: you have your package.json and package-lock.json in your .gitignore so we actually can't do any of this / we want those so we CAN share the packages that you need to run it, without sharing the node modules themselves ( being so massive it's nearing 'black-hole' status) -->
 ### `npm run start` 
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
+<!-- have we tried these commands ? do they work in the repo?  -->
 ### `npm test`
-
+<!--  -->
 ### `npm run build`
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
