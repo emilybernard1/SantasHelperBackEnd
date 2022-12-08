@@ -4,6 +4,7 @@ example_routes.js
 example.js
 package.json
 package-lock.json
+fly.toml
 
 # Logs
 logs
