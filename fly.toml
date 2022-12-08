@@ -9,7 +9,7 @@ processes = []
   builder = "heroku/buildpacks:20"
 
 [env]
-  PORT = "80"
+  PORT = "8000"
   MONGODB_URI = "mongodb+srv://emilybernard2022:TRbekj012882!@organizationname0.j6ixp.mongodb.net/SantasHelperBackEnd?retryWrites=true&w=majority"
   CLIENT_ORIGIN = "this will be the front end's deployed application"
 
@@ -31,7 +31,7 @@ processes = []
   [[services.ports]]
     force_https = true
     handlers = ["http"]
-    port = 80
+    port = 8000
 
   [[services.ports]]
     handlers = ["tls", "http"]
